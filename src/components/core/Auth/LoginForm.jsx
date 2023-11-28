@@ -55,7 +55,7 @@ const LoginForm = () => {
             {/* password */}
             <label className='flex flex-col gap-1' >
                 <input 
-                    type="text"
+                    type="password"
                     placeholder='Password'
                     {...register("password", {required:true})}
                     className='bg-[#333333] px-5 py-3 rounded outline-none text-white w-full '
