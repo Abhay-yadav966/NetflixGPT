@@ -1,5 +1,5 @@
 # NetflixGPT
-🎬 Welcome to Netflix GPT, a Netflix clone that provides users with a familiar interface to browse movies. The application is integrated with TMDB to fetch movie  details and with Node.js, Express.js for Backend and JWT Token for authentication. Users can watch trailers on YouTube by clicking on a movie. Additionally, there's a section for specialized movie suggestions, where users can enter their OpenAI key to get personalized movie recommendations.
+🎬 Welcome to Netflix GPT, a Netflix clone that provides users with a familiar interface to browse movies. The application is integrated with TMDB to fetch movie  details and with Node.js, Express.js for Backend and JWT Token for authentication. Additionally, there's a section for specialized movie suggestions, where users can enter Name of the movie.
 
 ## Features
 Netflix GPT offers a seamless movie browsing experience with the following features:
