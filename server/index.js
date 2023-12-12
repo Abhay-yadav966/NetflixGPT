@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
     cors({
-        origin:"https://netflix-abhay-yadav.vercel.app",
+        origin:"http://localhost:3000",
         credentials:true,
     })
 );
@@ -43,3 +43,4 @@ app.use("/", (req, res) => {
         message:"Your server is up and Running...",
     });
 });
+// https://netflix-abhay-yadav.vercel.app

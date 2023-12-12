@@ -23,7 +23,7 @@ const Navbar = () => {
     <div className='flex h-fit flex-col sm:flex-row items-center justify-between absolute top-0 left-0 w-full bg-gradient-to-b from-black via-black' >
         {/* image */}
         <div>
-            <a href="/browse"><img src={Logo} alt="logo" className='h-[150px] w-[270px]'/></a>
+            <a href="/browse"><img loading="lazy" src={Logo} alt="logo" className='h-[150px] w-[270px]'/></a>
         </div>
 
 
@@ -40,7 +40,7 @@ const Navbar = () => {
                             <IoSearch size={30} />
                         </button>
                         {/* logo */}
-                        <img src={userLogo} alt="" className='rounded-sm' />
+                        <img loading="lazy" src={userLogo} alt="" className='rounded-sm' />
                         {/* sign out button */}
                         <button
                             className='rounded-lg border border-[#2C333F] px-3 py-2 font-inter font-medium text-base text-[#AFB2BF] bg-[#161D29]'

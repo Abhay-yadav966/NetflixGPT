@@ -20,12 +20,12 @@ const MovieInfo = () => {
     }, [])
 
   return (
-    <div className='h-screen w-screen bg-no-repeat bg-cover' style={{ backgroundImage : `url(https://image.tmdb.org/t/p/w500/${movieInfo?.backdrop_path})`}} >
+    <div className='h-screen w-screen bg-no-repeat bg-cover' style={{ backgroundImage : ` ${movieInfo?.backdrop_path !== null ? `url(https://image.tmdb.org/t/p/w500/${movieInfo?.backdrop_path})` : `url(https://assets.nflxext.com/ffe/siteui/vlv3/93da5c27-be66-427c-8b72-5cb39d275279/94eb5ad7-10d8-4cca-bf45-ac52e0a052c0/IN-en-20240226-popsignuptwoweeks-perspective_alpha_website_medium.jpg)`}`}} >
         <div className='w-full h-full bg-gradient-to-b from-black via-black to-black opacity-80' >
             <Navbar/>
             <div className='w-11/12 max-w-7xl mx-auto h-full pt-36 px-5 flex gap-28 ' >
                 {/* image */}
-                <img src={`https://image.tmdb.org/t/p/w500/${movieInfo?.poster_path}`} alt="Movie Image" className='w-[300px] h-[410px] bg-cover rounded-2xl ' />
+                <img loading="lazy" src={`https://image.tmdb.org/t/p/w500/${movieInfo?.poster_path}`} alt="Movie Image" className='w-[300px] h-[410px] bg-cover rounded-2xl ' />
 
                 {/* details */}
                 <div className='flex flex-col gap-10' >
