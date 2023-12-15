@@ -17,7 +17,7 @@ Netflix GPT offers a seamless movie browsing experience with the following featu
 - OpenAI: Movie recommendation engine.
 
 ## Screenshots
-![Screenshot (248)](https://github.com/Abhay-yadav966/NetflixGPT/assets/115336330/a0260911-c064-4bba-8fb4-581f7eedb193)
+![Screenshot (264)](https://github.com/Abhay-yadav966/NetflixGPT/assets/115336330/7cb2d649-a53c-446f-9cd6-2065fdf9ec00)
 ![Screenshot (249)](https://github.com/Abhay-yadav966/NetflixGPT/assets/115336330/43d83143-2608-4231-9786-62d6e339b369)
 ![Screenshot (252)](https://github.com/Abhay-yadav966/NetflixGPT/assets/115336330/b45323ec-f06c-4d1b-8c2f-4df465a9c14f)
 ![Screenshot (251)](https://github.com/Abhay-yadav966/NetflixGPT/assets/115336330/5f0c1780-6ae3-4efa-9101-4a13ceea70cc)
