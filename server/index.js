@@ -38,7 +38,7 @@ app.listen(PORT, () => {
 
 // default server
 app.use("/", () => {
-    return resizeBy.status(200).json({
+    return res.status(200).json({
         success:true,
         message:"Your server is up and Running...",
     });
