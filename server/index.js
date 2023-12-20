@@ -37,7 +37,7 @@ app.listen(PORT, () => {
 });
 
 // default server
-app.use("/", () => {
+app.use("/", (req, res) => {
     return res.status(200).json({
         success:true,
         message:"Your server is up and Running...",
