@@ -31,7 +31,7 @@ export const getMovieBySearch = (searchQuery) => {
 }
 
 // mvoie info
-export const getMovieInfo = (id) => {
+export const getMovieInfo = (id, navigate) => {
     return async (dispatch) => {
         const toastId = toast.loading("Loading...");
         try{
@@ -48,6 +48,7 @@ export const getMovieInfo = (id) => {
         catch(err){
             console.log("Error Occured at Movie Info -->", err);
             toast.error("Details not found");
+            navigate("/browse")
         }
         toast.dismiss(toastId);
     }

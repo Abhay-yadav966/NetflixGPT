@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import {getMovieInfo} from '../services/operations/searchMovieAPI'
 import { useDispatch, useSelector } from 'react-redux';
 import Navbar from '../components/Common/Navbar';
@@ -8,6 +8,7 @@ const MovieInfo = () => {
 
     const { id} = useParams();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     // fetching data from slice
     const { movieInfo} = useSelector((state) => state.search);
@@ -15,7 +16,7 @@ const MovieInfo = () => {
     console.log("movie info -->", movieInfo);
 
     useEffect(() => {
-        dispatch(getMovieInfo(id));
+        dispatch(getMovieInfo(id, navigate));
     }, [])
 
   return (
