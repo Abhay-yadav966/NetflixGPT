@@ -38,6 +38,7 @@ const MovieInfo = () => {
                     <div className='flex gap-10 items-center ' >
                         <p className='text-white font-medium' >Date:<span> {movieInfo?.release_date}</span></p>
 
+                        {/* Genure */}
                         <div className='flex gap-2' >
                             <p className='text-white font-bold text-lg' >Genure:</p>
 
@@ -47,6 +48,19 @@ const MovieInfo = () => {
                                 ))
                             }
                         </div>
+                    </div>
+
+                    {/* runtime and Rating */}
+                    <div className='flex gap-10' >
+                        <p className='text-white font-medium' >Runtime: <span>{Math.round((movieInfo?.runtime)/60)} Hrs</span></p>
+
+                        <p className='text-white font-medium' >Ratings: <span>{movieInfo?.popularity}</span></p>
+                    </div>
+
+                    {/* overview */}
+                    <div>
+                        <h3 className='text-white text-xl font-medium' >Overview:</h3>
+                        <p className='text-white text-lg font-normal ' >{movieInfo?.overview}</p>
                     </div>
                 </div>
             </div>
