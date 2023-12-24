@@ -11,15 +11,19 @@ const MovieInfo = () => {
     // fetching data from slice
     const { movieInfo} = useSelector((state) => state.search);
 
-    console.log("Movie info -->", movieInfo);
+    console.log("value of id -->", id);
+    console.log("value of backdrop image ", movieInfo?.backdrop_path)
+    console.log("Movie info", movieInfo);
    
     useEffect(() => {
         dispatch(getMovieInfo(id));
     }, [])
 
   return (
-    <div>
+    <div className='h-screen w-screen bg-no-repeat bg-cover' style={{ backgroundImage : `url(https://image.tmdb.org/t/p/w500/${movieInfo?.backdrop_path})`}} >
+        <div className='w-full h-full bg-gradient-to-b from-black via-black to-black opacity-60' >
 
+        </div>
     </div>
   )
 }
