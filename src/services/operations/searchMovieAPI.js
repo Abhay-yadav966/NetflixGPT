@@ -1,6 +1,6 @@
 import toast from "react-hot-toast";
 import { apiConnector } from "../apiConnector";
-import { setSearchMovie} from '../../slices/searchMovieSlice'
+import { setSearchMovie, setMovieInfo} from '../../slices/searchMovieSlice'
 
 
 // search movie
@@ -38,6 +38,12 @@ export const getMovieInfo = (id) => {
             const response = await apiConnector("GET", `https://api.themoviedb.org/3/movie/${id}?&append_to_response=videos&api_key=${process.env.REACT_APP_TMDB_API_KEY}`);
 
             console.log("Response --->", response);
+
+            if( !response?.status === 200 ){
+                throw new Error("Data not found");
+            }
+
+            dispatch(setMovieInfo(response?.data));
         }
         catch(err){
             console.log("Error Occured at Movie Info -->", err);
