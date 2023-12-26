@@ -7,6 +7,7 @@ import Browse from "./Pages/Browse";
 import OpenRoute from "./components/Common/OpenRoute";
 import PrivateRoute from "./components/Common/PrivateRoute";
 import GPTSearch from "./Pages/GPTSearch";
+import MovieInfo from "./Pages/MovieInfo";
 
 function App() {
   return (
@@ -62,6 +63,11 @@ function App() {
         {/* movie info */}
         <Route
           path="/movieinfo/:id"
+          element={
+            <PrivateRoute>
+              <MovieInfo/>
+            </PrivateRoute>
+          }
         />
 
       </Routes>

@@ -29,3 +29,20 @@ export const getMovieBySearch = (searchQuery) => {
         toast.dismiss(toastId);
     }
 }
+
+// mvoie info
+export const getMovieInfo = (id) => {
+    return async (dispatch) => {
+        const toastId = toast.loading("Loading...");
+        try{
+            const response = await apiConnector("GET", `https://api.themoviedb.org/3/movie/${id}?&append_to_response=videos&api_key=${process.env.REACT_APP_TMDB_API_KEY}`);
+
+            console.log("Response --->", response);
+        }
+        catch(err){
+            console.log("Error Occured at Movie Info -->", err);
+            toast.error("Details not found");
+        }
+        toast.dismiss(toastId);
+    }
+}
