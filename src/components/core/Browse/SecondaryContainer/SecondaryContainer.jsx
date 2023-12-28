@@ -11,19 +11,20 @@ const SecondaryContainer = () => {
   // fetchdata from slice
   const {hindiMovies, popularMovies, topRatedMovies, upcomingMovies} = useSelector((state) => state.movie);
 
+
   // will trigger on first render
   useEffect(() => {
     // hindi movies
-    dispatch(getHindiMovies());
+    hindiMovies.length === 0 && (dispatch(getHindiMovies()));
 
     // popular movies
-    dispatch(getPopularMovies());
+    popularMovies.length === 0 && (dispatch(getPopularMovies()));
 
     // top rated movies
-    dispatch(getTopRatedMovies());
+    topRatedMovies.length === 0 && (dispatch(getTopRatedMovies()));
 
     // upcoming movies
-    dispatch(getUpcomingMovies());
+    upcomingMovies.length === 0 && (dispatch(getUpcomingMovies()));
 
   },[])
 
