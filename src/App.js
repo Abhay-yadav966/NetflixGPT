@@ -59,6 +59,11 @@ function App() {
           }
         />
 
+        {/* movie info */}
+        <Route
+          path="/movieinfo/:id"
+        />
+
       </Routes>
     </div>
   );
