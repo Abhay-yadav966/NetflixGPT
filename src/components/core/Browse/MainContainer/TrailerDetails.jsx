@@ -1,12 +1,15 @@
 import React from 'react'
-import { FaPlay } from "react-icons/fa6";
+import { FaChampagneGlasses, FaPlay } from "react-icons/fa6";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 
 const TrailerDetails = ({title, desc}) => {
+
+  console.log("Length of description", desc?.length);
+
   return (
     <div className='absolute flex flex-col gap-1 md:gap-5 top-[35%] sm:top-[30%] px-10 w-screen' >
         <h1 className='text-white text-3xl sm:text-5xl md:text-6xl font-semibold' >{title}</h1>
-        <p className='text-white text-sm sm:text-base md:text-lg w-[100%] sm:w-[80%] md:w-[40%] ' >{desc}</p>
+        <p className='text-white text-sm sm:text-base md:text-lg w-[100%] sm:w-[80%] md:w-[40%] ' >{ desc?.length >= 50 ? (desc?.split(' ').slice(0, 50).join(' ') + "...") : (desc)}</p>
 
         {/* buttons */}
         <div className='flex items-center gap-2' >
