@@ -17,7 +17,7 @@ const SwiperScrollBar = ({movies}) => {
     <div>
       <Swiper
         spaceBetween={"60"}
-        slidesPerView={5}
+        slidesPerView={1}
         centeredSlides={true}
         autoplay={{
           delay: 2500,
@@ -28,6 +28,11 @@ const SwiperScrollBar = ({movies}) => {
         loop={true}
         modules={[Autoplay, Pagination, Navigation]}
         className='mySwiper'
+        breakpoints={{
+          450:{slidesPerView:2},
+          650:{slidesPerView:3},
+          1024:{slidesPerView:5},
+        }}
       >
         {
           movies?.map((movieData, index) => (
