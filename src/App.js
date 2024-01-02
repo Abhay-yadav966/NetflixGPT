@@ -6,6 +6,7 @@ import VerifyEmail from "./Pages/VerifyEmail";
 import Browse from "./Pages/Browse";
 import OpenRoute from "./components/Common/OpenRoute";
 import PrivateRoute from "./components/Common/PrivateRoute";
+import GPTSearch from "./Pages/GPTSearch";
 
 function App() {
   return (
@@ -46,6 +47,16 @@ function App() {
                 <Browse/>
               </PrivateRoute>
             } 
+        />
+
+        {/* GPT Search Page */}
+        <Route
+          path="/search"
+          element={
+            <PrivateRoute>
+              <GPTSearch/>
+            </PrivateRoute>
+          }
         />
 
       </Routes>
