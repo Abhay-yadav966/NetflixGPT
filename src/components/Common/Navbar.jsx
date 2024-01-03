@@ -3,6 +3,7 @@ import Logo from '../../assets/Logos-Readability-Netflix-logo.png'
 import { useDispatch, useSelector } from 'react-redux'
 import {logout} from '../../services/operations/authAPI'
 import { useNavigate } from 'react-router-dom'
+import { IoSearch } from "react-icons/io5";
 
 const Navbar = () => {
 
@@ -30,9 +31,16 @@ const Navbar = () => {
         <div>
             {
                 token && (
-                    <div className='flex items-center gap-3 mr-12 ' >
+                    <div className='flex items-center gap-5 mr-12 ' >
+                        {/* GPT search button */}
+                        <button
+                            onClick={() => navigate("/search")}
+                            className='text-white'
+                        >
+                            <IoSearch size={30} />
+                        </button>
                         {/* logo */}
-                        <img src={userLogo} alt="" />
+                        <img src={userLogo} alt="" className='rounded-sm' />
                         {/* sign out button */}
                         <button
                             className='rounded-lg border border-[#2C333F] px-3 py-2 font-inter font-medium text-base text-[#AFB2BF] bg-[#161D29]'
