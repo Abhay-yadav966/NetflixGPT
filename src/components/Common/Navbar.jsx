@@ -23,7 +23,7 @@ const Navbar = () => {
     <div className='flex h-fit flex-row items-center justify-between absolute top-0 left-0 w-full bg-gradient-to-b from-black via-black' >
         {/* image */}
         <div>
-            <img src={Logo} alt="logo" className='h-[150px] w-[270px]'/>
+            <a href="/browse"><img src={Logo} alt="logo" className='h-[150px] w-[270px]'/></a>
         </div>
 
 
