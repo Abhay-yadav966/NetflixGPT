@@ -93,6 +93,13 @@ const SignUpForm = () => {
                 Sign Up
             </button>
 
+            {/* sign in */}
+            <button
+                className='text-white'
+                onClick={() => navigate("/")}
+            >
+                Sign in
+            </button>
         </form>
     </div>
   )
