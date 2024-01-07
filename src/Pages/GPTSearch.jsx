@@ -1,8 +1,17 @@
 import React from 'react'
 import Navbar from '../components/Common/Navbar';
+import { useForm } from 'react-hook-form';
 
 
 const GPTSearch = () => {
+
+  // form hook
+  const {
+    register,
+    handleSubmit,
+    formState:{errors},
+  } = useForm();
+
   return (
     <div className='relative' >
         <Navbar/>
@@ -14,6 +23,14 @@ const GPTSearch = () => {
 
         <div className='absolute top-0 w-full border border-red-500' >
 
+          {/* search form */}
+          <form>
+            <input 
+              type="text"
+              placeholder=''
+              className=''
+            />
+          </form>
         </div>
     </div>
   )

@@ -10,10 +10,12 @@ const MovieCard = ({data}) => {
   }
 
   return (
-    <div className='w-[200px]'>
+    <div className='w-[200px] flex flex-col gap-1 hover:scale-125 duration-300 '>
       {/* image */}
       <img src={posterPath} alt="Poster image" className='w-full h-[200px] object-cover rounded-md'/>
       
+      {/* movie name */}
+      <p className='text-white' >{data?.title}</p>
     </div>
   )
 }
