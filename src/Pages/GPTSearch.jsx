@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from '../components/Common/Navbar';
 import { useForm } from 'react-hook-form';
 
@@ -9,12 +9,21 @@ const GPTSearch = () => {
   const {
     register,
     handleSubmit,
+    reset,
+    formState:{isSubmitSuccessful},
   } = useForm();
 
   // submit fn.
   const submitHandler = (data) => {
     console.log("Searched data -->", data);
   }
+
+  // trigger on first render
+  useEffect(() => {
+    reset({
+      search:""
+    })
+  },[isSubmitSuccessful])
 
   return (
     <div className='relative' >
