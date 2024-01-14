@@ -3,8 +3,6 @@ import {apiConnector} from '../apiConnector'
 import {tmdbMoviesEndpoints} from '../apis'
 import {setNowPlayingMovies, setHindiMovies, setPopularMovies, setTopRatedMovies, setUpcomingMovies} from '../../slices/movieSlice'
 
-export const tmdb_token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZWYwZDA0Y2FiOTVmNDNjZjBjYWFhNGY4NWVjZDkzNCIsInN1YiI6IjY1ZjU2NWMyYjk3NDQyMDE3ZGZhNTk2ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.p-zk5HKNUNCOznwltWVX8A_b1u6fLZNqetmikeV2tu0"
-
 
 // Now Playing
 export const getNowPlayingMovies = () => {
@@ -12,7 +10,7 @@ export const getNowPlayingMovies = () => {
         try{
             console.log("API --->", tmdbMoviesEndpoints.NOWPLAYING_API);
             const response = await apiConnector("GET", tmdbMoviesEndpoints.NOWPLAYING_API, null, {
-                "Authorization":`Bearer ${tmdb_token}`
+                "Authorization":`Bearer ${process.env.REACT_APP_TMDB_TOKEN}`
             })
     
             console.log("Now playing movie api -->", response);
@@ -32,7 +30,7 @@ export const getHindiMovies = () => {
     return async (dispatch) => {
         try{
             const response = await apiConnector("GET", tmdbMoviesEndpoints.HINDIMOVIE_API, null, {
-                "Authorization":`Bearer ${tmdb_token}`
+                "Authorization":`Bearer ${process.env.REACT_APP_TMDB_TOKEN}`
             });
 
             console.log("Hindi movies data --->", response);
@@ -50,7 +48,7 @@ export const getPopularMovies = () => {
     return async (dispatch) => {
         try{
             const response = await apiConnector("GET", tmdbMoviesEndpoints.POPULAR_API, null, {
-                "Authorization":`Bearer ${tmdb_token}`
+                "Authorization":`Bearer ${process.env.REACT_APP_TMDB_TOKEN}`
             });
 
             console.log("Popular movies Api data -->", response);
@@ -68,7 +66,7 @@ export const getTopRatedMovies = () => {
     return async (dispatch) => {
         try{
             const response = await apiConnector("GET", tmdbMoviesEndpoints.TOPRATED_API, null, {
-                "Authorization":`Bearer ${tmdb_token}`
+                "Authorization":`Bearer ${process.env.REACT_APP_TMDB_TOKEN}`
             });
 
             console.log("Top Rated movies Api data", response);
@@ -86,7 +84,7 @@ export const getUpcomingMovies = () => {
     return async (dispatch) => {
         try{
             const response = await apiConnector("GET", tmdbMoviesEndpoints.UPCOMING_API, null, {
-                "Authorization":`Bearer ${tmdb_token}`
+                "Authorization":`Bearer ${process.env.REACT_APP_TMDB_TOKEN}`
             });
 
             console.log("Upcoming movies data", response);

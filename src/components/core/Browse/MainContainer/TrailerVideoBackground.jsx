@@ -12,7 +12,7 @@ const TrailerVideoBackground = ({trailerId}) => {
 
         try{
             const response = await apiConnector("GET", `https://api.themoviedb.org/3/movie/${trailerId}/videos?language=en`, null, {
-                "Authorization":`Bearer ${tmdb_token}`
+                "Authorization":`Bearer ${process.env.REACT_APP_TMDB_TOKEN}`
             })
     
             console.log("Trailer video data --->", response);

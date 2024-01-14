@@ -1,29 +1,9 @@
 import React, { useEffect } from 'react'
 import Navbar from '../components/Common/Navbar';
-import { useForm } from 'react-hook-form';
+import SearchForm from '../components/core/GPTSearch/SearchForm';
 
 
 const GPTSearch = () => {
-
-  // form hook
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState:{isSubmitSuccessful},
-  } = useForm();
-
-  // submit fn.
-  const submitHandler = (data) => {
-    console.log("Searched data -->", data);
-  }
-
-  // trigger on first render
-  useEffect(() => {
-    reset({
-      search:""
-    })
-  },[isSubmitSuccessful])
 
   return (
     <div className='relative' >
@@ -34,28 +14,10 @@ const GPTSearch = () => {
           className='bg-cover w-screen'
         />
 
-        <div className='absolute top-44 left-[50%] translate-x-[-50%] w-[50%] ' >
+        {/* Search Form */}
+        <SearchForm/>
 
-          {/* search form */}
-          <form className='p-1 flex items-center gap-4 justify-center '
-            onSubmit={handleSubmit(submitHandler)}
-          >
-            <input 
-              type="text"
-              placeholder='What would you like to watch today?'
-              {...register("search")}
-              className='outline-none p-3 rounded-lg text-white text-base font-medium bg-[#161D29] w-[60%] '
-            />
-
-            {/* submit button */}
-            <button
-              type='submit'
-              className='text-white rounded-lg text-base font-medium py-2 px-5 bg-red-700 '
-            >
-              Search
-            </button>
-          </form>
-        </div>
+        
     </div>
   )
 }

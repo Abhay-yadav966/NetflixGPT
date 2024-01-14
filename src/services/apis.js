@@ -16,3 +16,4 @@ export const tmdbMoviesEndpoints = {
     TOPRATED_API:"https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
     UPCOMING_API:"https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1",
 }
+
