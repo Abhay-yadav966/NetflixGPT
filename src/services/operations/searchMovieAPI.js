@@ -1,14 +1,31 @@
+import toast from "react-hot-toast";
 import { apiConnector } from "../apiConnector";
+import { setSearchMovie} from '../../slices/searchMovieSlice'
 
 
 // search movie
-export const getMovieBySearch = async (searchQuery) => {
-    try{
-        const result = await apiConnector("GET", "https://api.themoviedb.org/3/search/movie?query=" + searchQuery + "&api_key=" + process.env.REACT_APP_TMDB_API_KEY)
+export const getMovieBySearch = (searchQuery) => {
 
-        console.log("result", result);
-    }
-    catch(err){
-        console.log("Error occured at ---->", err);
+    return async (dispatch) => {
+        const toastId = toast.loading("Loading...");
+        try{
+            const response = await apiConnector("GET", "https://api.themoviedb.org/3/search/movie?query=" + searchQuery + "&api_key=" + process.env.REACT_APP_TMDB_API_KEY)
+    
+            console.log("result", response?.data?.results);
+    
+            // data comming is empty
+            if( !response?.data?.results.length ){
+                throw new Error("No Search Found");
+            }
+    
+            dispatch(setSearchMovie(response?.data?.results));
+    
+            toast.success("Movie Got");
+        }
+        catch(err){
+            console.log("Error occured at ---->", err); 
+            toast.error("No Search Found");
+        }
+        toast.dismiss(toastId);
     }
 }

@@ -2,9 +2,14 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import {getMovieBySearch} from '../../../services/operations/searchMovieAPI'
+import { useDispatch, useSelector } from 'react-redux';
 
 
 const SearchForm = () => {
+
+  const {searchMovie} = useSelector((state) => state.search);
+
+  const dispatch = useDispatch();
 
   // form hook
   const {
@@ -37,7 +42,9 @@ const SearchForm = () => {
     const searchQuery = data?.search.split(' ').filter((word) => word !== "movie").join('+');
     console.log("Search query", searchQuery);
     
-    getMovieBySearch(searchQuery);
+    dispatch(getMovieBySearch(searchQuery));
+
+    console.log("value of movie slice", searchMovie);
 
   }
 
