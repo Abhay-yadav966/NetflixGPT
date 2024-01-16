@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    searchMovie:[],
+    searchMovie:null,
 }
 
 export const searchSlice = createSlice({

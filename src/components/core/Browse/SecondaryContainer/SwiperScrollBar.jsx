@@ -31,7 +31,7 @@ const SwiperScrollBar = ({movies}) => {
       >
         {
           movies?.map((movieData, index) => (
-            <SwiperSlide key={index} >
+            <SwiperSlide key={index} className='py-10' >
               <MovieCard data={movieData} />
             </SwiperSlide>
           ))

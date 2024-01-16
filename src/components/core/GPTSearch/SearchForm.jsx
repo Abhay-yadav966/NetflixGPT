@@ -45,6 +45,7 @@ const SearchForm = () => {
     dispatch(getMovieBySearch(searchQuery));
 
     console.log("value of movie slice", searchMovie);
+    console.log("type of search movie", typeof(searchMovie));
 
   }
 
@@ -56,7 +57,7 @@ const SearchForm = () => {
   },[isSubmitSuccessful])
 
   return (
-    <div className='absolute top-44 left-[50%] translate-x-[-50%] w-[50%] ' >
+    <div className='w-[50%] ' >
 
           {/* search form */}
           <form className='p-1 flex items-center gap-4 justify-center '

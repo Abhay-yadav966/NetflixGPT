@@ -18,7 +18,7 @@ export const getMovieBySearch = (searchQuery) => {
                 throw new Error("No Search Found");
             }
     
-            dispatch(setSearchMovie(response?.data?.results));
+            dispatch(setSearchMovie(response?.data?.results[0]));
     
             toast.success("Movie Got");
         }
