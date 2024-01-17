@@ -20,7 +20,7 @@ const Navbar = () => {
     }
 
   return (
-    <div className='flex h-fit flex-row items-center justify-between absolute top-0 left-0 w-full bg-gradient-to-b from-black via-black' >
+    <div className='flex h-fit flex-col sm:flex-row items-center justify-between absolute top-0 left-0 w-full bg-gradient-to-b from-black via-black' >
         {/* image */}
         <div>
             <a href="/browse"><img src={Logo} alt="logo" className='h-[150px] w-[270px]'/></a>
@@ -31,7 +31,7 @@ const Navbar = () => {
         <div>
             {
                 token && (
-                    <div className='flex items-center gap-5 mr-12 ' >
+                    <div className='flex items-center gap-5 m-0 sm:mr-12 ' >
                         {/* GPT search button */}
                         <button
                             onClick={() => navigate("/search")}
