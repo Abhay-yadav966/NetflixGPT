@@ -57,7 +57,7 @@ const SearchForm = () => {
   },[isSubmitSuccessful])
 
   return (
-    <div className='w-[50%] ' >
+    <div className=' w-[100%] sm:w-[50%] ' >
 
           {/* search form */}
           <form className='p-1 flex items-center gap-4 justify-center '
@@ -67,7 +67,7 @@ const SearchForm = () => {
               type="text"
               placeholder='Enter the name of Movie'
               {...register("search")}
-              className='outline-none p-3 rounded-lg text-white text-base font-medium bg-[#161D29] w-[60%] '
+              className='outline-none p-3 rounded-lg text-white text-base font-medium bg-[#161D29] sm:w-[60%] '
             />
 
             {/* submit button */}
