@@ -85,7 +85,7 @@ exports.signUp = async (req, res) => {
             return res.status(400).json({
                 success:false,
                 message:"All feilds are required",
-            })
+            }) 
         }
 
         // find most recent otp
