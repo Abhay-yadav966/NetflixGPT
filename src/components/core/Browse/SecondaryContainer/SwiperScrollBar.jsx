@@ -9,10 +9,14 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 
 const SwiperScrollBar = ({children}) => {
+
+  console.log("Printing log", children);
+
   return (
-    <>
+    <div className='flex' >
       <Swiper
-        spaceBetween={30}
+        spaceBetween={""}
+        slidesPerView={5}
         centeredSlides={true}
         autoplay={{
           delay: 2500,
@@ -20,14 +24,15 @@ const SwiperScrollBar = ({children}) => {
         }}
         pagination={true}
         navigation={true}
+        loop={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className=''
+        className='w-full flex'
       >
         <SwiperSlide>
           {children}
         </SwiperSlide>
       </Swiper>
-    </>
+    </div>
   )
 }
 

@@ -33,13 +33,15 @@ const SecondaryContainer = () => {
         {/* hindi movies */}
         <div>
           <h1>Now Playing</h1>
-          <div className='flex' >
+          <div>
             {
-              hindiMovies.map((element, index) => (
-                <div key={index} className='' >
-                  <MovieCard data={element} />
-                </div>
-              ))
+              <SwiperScrollBar>
+              {  
+                hindiMovies.map((element, index) => (
+                    <MovieCard i={index} data={element} />
+                ))
+              }
+              </SwiperScrollBar>
             }
           </div>
         </div>
