@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import {getHindiMovies, getPopularMovies, getTopRatedMovies, getUpcomingMovies} from '../../../../services/operations/moviesAPI'
 import { useDispatch, useSelector } from 'react-redux'
 import MovieCard from './MovieCard'
+import SwiperScrollBar from './SwiperScrollBar'
 
 const SecondaryContainer = () => {
 
