@@ -43,7 +43,7 @@ const SignUpForm = () => {
             {/* email */}
             <label>
                 <input 
-                    type="text"
+                    type="email"
                     placeholder='Email Address'
                     {...register("email", {required:true})}
                     className='bg-[#333333] px-5 py-3 rounded outline-none text-white w-full'

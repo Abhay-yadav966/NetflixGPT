@@ -35,7 +35,7 @@ const LoginForm = () => {
             {/* email */}
             <label className='flex flex-col gap-1' >
                 <input 
-                    type="text"
+                    type="email"
                     placeholder='Email Address'
                     {...register("email", {required:true})}
                     className='bg-[#333333] px-5 py-3 rounded outline-none text-white w-full '
