@@ -3,7 +3,7 @@ import Tamplate from '../components/Common/Tamplate';
 
 const VerifyEmail = () => {
   return (
-    <div>
+    <div className='h-screen w-full overflow-hidden ' >
         <Tamplate
             verify={true}
             isLogin={false}

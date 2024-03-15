@@ -1,11 +1,12 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-
-
+import {login} from '../../../services/operations/authAPI'
+import {useDispatch} from 'react-redux';
 
 const LoginForm = () => {
 
+    const dispatch = useDispatch();
 
     // form
     const {
@@ -17,7 +18,7 @@ const LoginForm = () => {
 
     // submit fn
     const submitHandler = (data) => {
-        console.log(data);
+        dispatch(login(data));
     }
 
 

@@ -2,7 +2,11 @@
 const User = require("../models/User");
 const OTP = require("../models/Otp");
 const otpGenerator = require("otp-generator");
+const bcrypt = require("bcrypt");
+const JWT = require("jsonwebtoken");
+require("dotenv").config();
 
+// send otp
 exports.otpSender = async (req, res) => {
     try{
         // fetch data from body 
@@ -68,3 +72,121 @@ exports.otpSender = async (req, res) => {
         });
     }
 } 
+
+
+// sign up
+exports.signUp = async (req, res) => {
+    try{
+        // fetch data from req
+        const { fullName, email, password, otp} = req.body;
+
+        // validate
+        if( !fullName || !email || !password || !otp ){
+            return res.status(400).json({
+                success:false,
+                message:"All feilds are required",
+            })
+        }
+
+        // find most recent otp
+        const otpDetails = await OTP.find({email:email}).sort({createdAt:-1}).limit(1);
+
+        if( otpDetails.length === 0 ){
+            return res.status(404).json({
+                success:false,
+                message:"OTP not found",
+            })
+        }
+
+        // check otp
+        if( otpDetails[0].otp !== otp ){
+            return res.status(500).json({
+                success:false,
+                message:"Invalid OTP",
+            })
+        }
+
+        // hash the passsword
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // create entry in DB for user
+        const userDetails = await User.create({
+                                                fullName: fullName, 
+                                                email: email, 
+                                                password: hashedPassword,
+                                            });
+
+        // return res
+        return res.status(200).json({
+            success:true,
+            message:"User Sign Up Successfully",
+        });
+
+    }
+    catch(err){
+        return res.status(500).json({
+            success:false,
+            message:"Error occur in Sign UP",
+            error:err.message,
+        })
+    }
+}
+
+// login
+exports.login = async (req, res) => {
+    try{
+        const { email, password } = req.body;
+
+        if( !email || !password ){
+            return res.status(400).json({
+                success:false,
+                message:"All fields are required",
+            })
+        }
+
+        // check the user presence
+        const userDetails = await User.findOne({email:email});
+
+        if(!userDetails){
+            return res.status(404).json({
+                success:false,
+                message:"User not present",
+            })
+        }
+
+        // validate password
+        const isMatch = await bcrypt.compare(password, userDetails.password);
+
+        if(!isMatch){
+            return res.status(403).josn({
+                success:false,
+                message:"Incorrect Password",
+            })
+        }
+
+        // create token
+
+        const payload = {
+            id:userDetails._id,
+            email:userDetails.email,
+        }
+
+        const token = await JWT.sign( payload, process.env.JWT_SECRET, {
+            expiresIn:"2h",
+        } )
+
+        // send response
+        return res.status(200).json({
+            success:true,
+            message:"Logged in Successfully",
+            token,
+        });
+    }
+    catch(error){
+        return res.status(500).json({
+            success:false,
+            message:"Something went wrong in Login ",
+            error:error.message,
+        });
+    }
+}
