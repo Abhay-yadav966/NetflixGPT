@@ -2,6 +2,8 @@
  const express = require("express");
  const app = express();
 
+ const userRoutes = require("./routes/User")
+
  const db = require("./config/database")
  require("dotenv").config();
  const cors = require("cors");
@@ -21,13 +23,17 @@ app.use(
 );
 
 
+// routes
+app.use("/api/v1/auth", userRoutes);
+
+
 // database connect 
 db.connect();
 
 
 // initiate the server
 app.listen(PORT, () => {
-    console.log(`Server is running at Port no. {PORT}`)
+    console.log(`Server is running at Port no. ${PORT}`) 
 });
 
 // default server

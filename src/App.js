@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
+import VerifyEmail from "./Pages/VerifyEmail";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
 
         {/* SignUp */}
         <Route path="/signup" element={<SignUp/>} />
+
+        {/* verify email */}
+        <Route path="/verify-email" element={<VerifyEmail/>} />
 
       </Routes>
     </div>

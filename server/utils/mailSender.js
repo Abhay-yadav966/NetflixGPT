@@ -1,9 +1,7 @@
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
-
 exports.mailSender = async (email, title, body) => {
-
     try{
         const transporter = nodemailer.createTransport({
             host:process.env.MAIL_HOST,
@@ -17,9 +15,9 @@ exports.mailSender = async (email, title, body) => {
             from:"Netflix - Abhay Yadav",
             to:`${email}`,
             subject:`${title}`,
-            html:`${body}`
+            html:`${body}`,
         });
-    
+
         return info;
     }
     catch(error){

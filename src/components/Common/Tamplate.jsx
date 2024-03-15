@@ -2,9 +2,10 @@ import React from 'react'
 import Logo from '../../assets/Logos-Readability-Netflix-logo.png'
 import LoginForm from '../core/Auth/LoginForm'
 import SignUpForm from '../core/Auth/SignUpForm'
+import VerifyEmailField from '../core/Auth/VerifyEmailField'
 
 
-const Tamplate = ({isLogin}) => {
+const Tamplate = ({isLogin, verify}) => {
 
 
   return (
@@ -24,7 +25,9 @@ const Tamplate = ({isLogin}) => {
 
         {/* login form and signup form */}
         <div className='absolute top-[18%] bg-black bg-opacity-75 p-16 left-[50%] translate-x-[-50%] w-[450px] rounded' >
-            { isLogin ? <LoginForm/> : <SignUpForm/> }
+            { 
+              !verify ? (isLogin ? <LoginForm/> : <SignUpForm/>) :  (<VerifyEmailField/>)
+            }
         </div>
     </div>
   )

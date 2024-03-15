@@ -1,16 +1,15 @@
 import React from 'react'
 import Tamplate from '../components/Common/Tamplate';
 
-const SignUp = () => {
+const VerifyEmail = () => {
   return (
-    <div className='w-full h-screen overflow-hidden' >
-        {/* tamplate */}
+    <div>
         <Tamplate
+            verify={true}
             isLogin={false}
-            verify={false}
         />
     </div>
   )
 }
 
-export default SignUp;
+export default VerifyEmail;

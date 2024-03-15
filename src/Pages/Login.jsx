@@ -7,7 +7,7 @@ const Login = () => {
     <div className='h-screen w-full overflow-hidden ' >
 
       {/* Tamplate */}
-      <Tamplate isLogin={true} />
+      <Tamplate isLogin={true} verify={false} />
 
     </div>
   )

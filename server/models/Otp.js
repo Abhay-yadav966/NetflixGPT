@@ -11,7 +11,7 @@ const OTPSchema = new mongoose.Schema({
     },
 
     otp:{
-        type:Number,
+        type:String,
         require:true,
 
     },
@@ -36,7 +36,7 @@ const sendEmailVerification = async (email, otp) => {
 }
 
 // pre 
-OTPSchema.pre("save", async (next) => {
+OTPSchema.pre("save", async function(next) {
     await sendEmailVerification(this.email, this.otp);
     next();
 });

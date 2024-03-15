@@ -1,7 +1,14 @@
 import React from 'react'
 import {useForm} from 'react-hook-form'
+import { useDispatch } from 'react-redux';
+import {setSignUpData} from '../../../slices/authSlice'
+import {sendOpt} from '../../../services/operations/authAPI'
+import { useNavigate } from 'react-router-dom';
 
 const SignUpForm = () => {
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const {
         register,
@@ -12,7 +19,10 @@ const SignUpForm = () => {
 
     // sign up handler
     const submitSignUp = (data) => {
-        console.log(data);
+        dispatch(setSignUpData(data));
+
+        const email = data.email;
+        sendOpt(email, navigate);
     }
 
   return (
