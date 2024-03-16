@@ -3,10 +3,12 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import {login} from '../../../services/operations/authAPI'
 import {useDispatch} from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     // form
     const {
@@ -18,7 +20,7 @@ const LoginForm = () => {
 
     // submit fn
     const submitHandler = (data) => {
-        dispatch(login(data));
+        dispatch(login(data, navigate));
     }
 
 

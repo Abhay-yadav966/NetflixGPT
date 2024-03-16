@@ -49,7 +49,7 @@ export const signUp = async ( fullName, email, password, otp, navigate) => {
 }
 
 // LOGIN
-export const login = (data) => {
+export const login = (data, navigate) => {
     return async (dispatch) => {
         const toastId = toast.loading("Loading...");
         try{
@@ -68,12 +68,36 @@ export const login = (data) => {
             toast.success("Login Successfully");
 
             // Todo navigate
-    
+            navigate("/browse")
         }
         catch(error){
             console.log("Error Occured in Login API ---->", error);
             toast.error("Login Failed");
         }
         toast.dismiss(toastId);
+    }
+}
+
+// LOGOUT
+export const logout = (navigate) => {
+    return (dispatch) => {
+        const toastId = toast.loading("Loading...");
+        try{
+            // remove data from local storage
+            localStorage.removeItem("JWTtoken");
+
+            // set data null in slice
+            dispatch(setToken(null));
+
+            toast.success("Logout Successfully");
+
+            navigate("/");
+        }
+        catch(err){
+            console.log("Error Occured in Logout --->", err);
+            toast.error("Logout failed");
+        }
+        toast.dismiss(toastId);
+        return;
     }
 }

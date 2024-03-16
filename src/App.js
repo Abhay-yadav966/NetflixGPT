@@ -3,6 +3,7 @@ import "./App.css";
 import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
 import VerifyEmail from "./Pages/VerifyEmail";
+import Browse from "./Pages/Browse";
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
 
         {/* verify email */}
         <Route path="/verify-email" element={<VerifyEmail/>} />
+
+        {/* browse page */}
+        <Route path="/browse" element={<Browse/>} />
 
       </Routes>
     </div>

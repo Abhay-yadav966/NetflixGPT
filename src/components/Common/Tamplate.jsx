@@ -1,8 +1,8 @@
 import React from 'react'
-import Logo from '../../assets/Logos-Readability-Netflix-logo.png'
 import LoginForm from '../core/Auth/LoginForm'
 import SignUpForm from '../core/Auth/SignUpForm'
 import VerifyEmailField from '../core/Auth/VerifyEmailField'
+import Navbar from './Navbar'
 
 
 const Tamplate = ({isLogin, verify}) => {
@@ -20,7 +20,7 @@ const Tamplate = ({isLogin, verify}) => {
         </div>
 
         {/* logo */}
-        <img src={Logo} alt="logo" className=' absolute top-0 left-0 h-[150px] w-[270px] z-10 '/>
+        <Navbar/>
 
 
         {/* login form and signup form */}
