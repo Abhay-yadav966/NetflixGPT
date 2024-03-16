@@ -4,6 +4,8 @@ import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
 import VerifyEmail from "./Pages/VerifyEmail";
 import Browse from "./Pages/Browse";
+import OpenRoute from "./components/Common/OpenRoute";
+import PrivateRoute from "./components/Common/PrivateRoute";
 
 function App() {
   return (
@@ -11,16 +13,40 @@ function App() {
       <Routes>
 
         {/* login */}
-        <Route path="/" element={<Login/>} />
+        <Route path="/" 
+            element={  
+              <OpenRoute>
+                <Login/>
+              </OpenRoute>
+            } 
+        />
 
         {/* SignUp */}
-        <Route path="/signup" element={<SignUp/>} />
+        <Route path="/signup" 
+            element={
+              <OpenRoute>
+                <SignUp/>
+              </OpenRoute>
+            } 
+        />
 
         {/* verify email */}
-        <Route path="/verify-email" element={<VerifyEmail/>} />
+        <Route path="/verify-email" 
+            element={
+              <OpenRoute>
+                <VerifyEmail/>
+              </OpenRoute>
+            } 
+        />
 
         {/* browse page */}
-        <Route path="/browse" element={<Browse/>} />
+        <Route path="/browse" 
+            element={
+              <PrivateRoute>
+                <Browse/>
+              </PrivateRoute>
+            } 
+        />
 
       </Routes>
     </div>
