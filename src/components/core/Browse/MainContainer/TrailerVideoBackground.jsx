@@ -41,6 +41,7 @@ const TrailerVideoBackground = ({trailerId}) => {
   return (
     <div>
         <iframe 
+            className='w-screen h-screen'
             src={`https://www.youtube.com/embed/${trailerKey}`}
             title="YouTube video player" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 

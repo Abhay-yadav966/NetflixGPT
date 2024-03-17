@@ -3,9 +3,9 @@ import { FaPlay } from "react-icons/fa6";
 
 const TrailerDetails = ({title, desc}) => {
   return (
-    <div>
-        <h1>{title}</h1>
-        <p>{desc}</p>
+    <div className='absolute' >
+        <h1 className='text-white text-6xl font-semibold' >{title}</h1>
+        <p className='text-white text-lg' >{desc}</p>
 
         {/* buttons */}
         <div>
