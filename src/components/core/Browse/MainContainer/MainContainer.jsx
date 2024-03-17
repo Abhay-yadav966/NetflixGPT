@@ -47,7 +47,7 @@ const MainContainer = () => {
     }, [movieIndex])
 
   return (
-    <div>
+    <div className='relative' >
       <TrailerDetails title={trailerData?.title} desc={trailerData?.overview} />
       <TrailerVideoBackground trailerId={trailerData?.id} />
     </div> 
