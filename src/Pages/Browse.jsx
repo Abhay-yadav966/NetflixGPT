@@ -3,6 +3,7 @@ import Navbar from '../components/Common/Navbar';
 import {getNowPlayingMovies} from '../services/operations/moviesAPI'
 import { useDispatch } from 'react-redux';
 import MainContainer from '../components/core/Browse/MainContainer/MainContainer';
+import SecondaryContainer from '../components/core/Browse/SecondaryContainer/SecondaryContainer';
 
 const Browse = () => {
 
@@ -16,6 +17,7 @@ const Browse = () => {
     <div>
         <Navbar/>
         <MainContainer/>
+        <SecondaryContainer/>
     </div>
   )
 }
