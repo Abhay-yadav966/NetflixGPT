@@ -1,7 +1,7 @@
 
 import {apiConnector} from '../apiConnector'
 import {tmdbMoviesEndpoints} from '../apis'
-import {setNowPlayingMovies, setHindiMovies, setPopularMovies, setTopRatedMovies} from '../../slices/movieSlice'
+import {setNowPlayingMovies, setHindiMovies, setPopularMovies, setTopRatedMovies, setUpcomingMovies} from '../../slices/movieSlice'
 
 export const tmdb_token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZWYwZDA0Y2FiOTVmNDNjZjBjYWFhNGY4NWVjZDkzNCIsInN1YiI6IjY1ZjU2NWMyYjk3NDQyMDE3ZGZhNTk2ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.p-zk5HKNUNCOznwltWVX8A_b1u6fLZNqetmikeV2tu0"
 
@@ -46,7 +46,7 @@ export const getHindiMovies = () => {
 }
 
 // popular movies
-export const popularMovies = () => {
+export const getPopularMovies = () => {
     return async (dispatch) => {
         try{
             const response = await apiConnector("GET", tmdbMoviesEndpoints.POPULAR_API, null, {
@@ -64,7 +64,7 @@ export const popularMovies = () => {
 }
 
 // top rated movies
-export const topRatedMovies = () => {
+export const getTopRatedMovies = () => {
     return async (dispatch) => {
         try{
             const response = await apiConnector("GET", tmdbMoviesEndpoints.TOPRATED_API, null, {
@@ -77,6 +77,24 @@ export const topRatedMovies = () => {
         }
         catch(err){
             console.log("Error occured at top rated movies -->", err);
+        }
+    }
+}
+
+// Upcoming movies
+export const getUpcomingMovies = () => {
+    return async (dispatch) => {
+        try{
+            const response = await apiConnector("GET", tmdbMoviesEndpoints.UPCOMING_API, null, {
+                "Authorization":`Bearer ${tmdb_token}`
+            });
+
+            console.log("Upcoming movies data", response);
+
+            dispatch(setUpcomingMovies(response?.data?.results));
+        }
+        catch(err){
+            console.log("Error occured at upcoming movies", err);
         }
     }
 }

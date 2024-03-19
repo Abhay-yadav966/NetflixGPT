@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect } from 'react'
-import {getHindiMovies, popularMovies, topRatedMovies} from '../../../../services/operations/moviesAPI'
+import {getHindiMovies, getPopularMovies, getTopRatedMovies, getUpcomingMovies} from '../../../../services/operations/moviesAPI'
 import { useDispatch } from 'react-redux'
 
 const SecondaryContainer = () => {
@@ -13,10 +13,13 @@ const SecondaryContainer = () => {
     dispatch(getHindiMovies());
 
     // popular movies
-    dispatch(popularMovies());
+    dispatch(getPopularMovies());
 
     // top rated movies
-    dispatch(topRatedMovies());
+    dispatch(getTopRatedMovies());
+
+    // upcoming movies
+    dispatch(getUpcomingMovies());
 
   },[])
 
