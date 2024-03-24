@@ -1,11 +1,15 @@
 import React from 'react'
 import { useEffect } from 'react'
 import {getHindiMovies, getPopularMovies, getTopRatedMovies, getUpcomingMovies} from '../../../../services/operations/moviesAPI'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import MovieCard from './MovieCard'
 
 const SecondaryContainer = () => {
 
   const dispatch = useDispatch();
+
+  // fetchdata from slice
+  const {hindiMovies, popularMovies, topRatedMovies, upcomingMovies} = useSelector((state) => state.movie);
 
   // will trigger on first render
   useEffect(() => {
@@ -25,7 +29,19 @@ const SecondaryContainer = () => {
 
   return (
     <div>
-
+        {/* hindi movies */}
+        <div>
+          <h1>Now Playing</h1>
+          <div className='flex' >
+            {
+              hindiMovies.map((element, index) => (
+                <div key={index} className='' >
+                  <MovieCard data={element} />
+                </div>
+              ))
+            }
+          </div>
+        </div>
     </div>
   )
 }
