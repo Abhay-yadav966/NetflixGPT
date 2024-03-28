@@ -38,8 +38,19 @@ const SecondaryContainer = () => {
         </div>
 
         {/* popular movies */}
-        <div>
-          
+        <div className='flex flex-col gap-5' >
+          <h1 className='text-3xl font-bold' >Popular</h1>
+          <div>
+            <SwiperScrollBar movies={popularMovies} />
+          </div>
+        </div>
+
+        {/* top rated */}
+        <div className='flex flex-col gap-5' >
+          <h1 className='text-3xl font-bold' >Trending</h1>
+          <div>
+            <SwiperScrollBar movies={topRatedMovies} />
+          </div>
         </div>
     </div>
   )
