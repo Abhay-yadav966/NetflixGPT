@@ -1,4 +1,5 @@
 import React from 'react'
+import MovieCard from './MovieCard'
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
@@ -8,14 +9,14 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 
-const SwiperScrollBar = ({children}) => {
+const SwiperScrollBar = ({movies}) => {
 
-  console.log("Printing log", children);
+  console.log("movies data -->", movies);
 
   return (
-    <div className='flex' >
+    <div>
       <Swiper
-        spaceBetween={""}
+        spaceBetween={"25"}
         slidesPerView={5}
         centeredSlides={true}
         autoplay={{
@@ -26,11 +27,15 @@ const SwiperScrollBar = ({children}) => {
         navigation={true}
         loop={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className='w-full flex'
+        className='mySwiper'
       >
-        <SwiperSlide>
-          {children}
-        </SwiperSlide>
+        {
+          movies?.map((movieData, index) => (
+            <SwiperSlide key={index} >
+              <MovieCard data={movieData} />
+            </SwiperSlide>
+          ))
+        }
       </Swiper>
     </div>
   )

@@ -2,7 +2,6 @@ import React from 'react'
 import { useEffect } from 'react'
 import {getHindiMovies, getPopularMovies, getTopRatedMovies, getUpcomingMovies} from '../../../../services/operations/moviesAPI'
 import { useDispatch, useSelector } from 'react-redux'
-import MovieCard from './MovieCard'
 import SwiperScrollBar from './SwiperScrollBar'
 
 const SecondaryContainer = () => {
@@ -29,21 +28,18 @@ const SecondaryContainer = () => {
   },[])
 
   return (
-    <div>
+    <div  >
         {/* hindi movies */}
-        <div>
-          <h1>Now Playing</h1>
+        <div className='flex flex-col gap-5' >
+          <h1 className='text-3xl font-bold ' >Now Playing</h1>
           <div>
-            {
-              <SwiperScrollBar>
-              {  
-                hindiMovies.map((element, index) => (
-                    <MovieCard i={index} data={element} />
-                ))
-              }
-              </SwiperScrollBar>
-            }
+            <SwiperScrollBar movies={hindiMovies} />
           </div>
+        </div>
+
+        {/* popular movies */}
+        <div>
+          
         </div>
     </div>
   )
