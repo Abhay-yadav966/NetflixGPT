@@ -28,28 +28,38 @@ const SecondaryContainer = () => {
   },[])
 
   return (
-    <div  >
-        {/* hindi movies */}
-        <div className='flex flex-col gap-5' >
-          <h1 className='text-3xl font-bold ' >Now Playing</h1>
-          <div>
-            <SwiperScrollBar movies={hindiMovies} />
+    <div className='bg-black pb-20 ' >
+        <div className='flex flex-col gap-7 py-5 w-11/12 max-w-7xl mx-auto' >
+          {/* hindi movies */}
+          <div className='flex flex-col gap-2 -mt-32 ' >
+            <h1 className='text-3xl font-bold text-white ' >Now Playing</h1>
+            <div>
+              <SwiperScrollBar movies={hindiMovies} />
+            </div>
           </div>
-        </div>
 
-        {/* popular movies */}
-        <div className='flex flex-col gap-5' >
-          <h1 className='text-3xl font-bold' >Popular</h1>
-          <div>
-            <SwiperScrollBar movies={popularMovies} />
+          {/* popular movies */}
+          <div className='flex flex-col gap-2' >
+            <h1 className='text-3xl font-bold text-white ' >Popular</h1>
+            <div>
+              <SwiperScrollBar movies={popularMovies} />
+            </div>
           </div>
-        </div>
 
-        {/* top rated */}
-        <div className='flex flex-col gap-5' >
-          <h1 className='text-3xl font-bold' >Trending</h1>
-          <div>
-            <SwiperScrollBar movies={topRatedMovies} />
+          {/* top rated */}
+          <div className='flex flex-col gap-2' >
+            <h1 className='text-3xl font-bold text-white ' >Trending</h1>
+            <div>
+              <SwiperScrollBar movies={topRatedMovies} />
+            </div>
+          </div>
+
+          {/* UpComing movies */}
+          <div className='flex flex-col gap-2' >
+            <h1 className='text-3xl font-bold text-white ' >Upcoming Movies</h1>
+            <div>
+              <SwiperScrollBar movies={upcomingMovies} />
+            </div>
           </div>
         </div>
     </div>

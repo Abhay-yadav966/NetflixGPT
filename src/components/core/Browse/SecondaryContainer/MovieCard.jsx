@@ -12,7 +12,7 @@ const MovieCard = ({data}) => {
   return (
     <div className='w-[200px]'>
       {/* image */}
-      <img src={posterPath} alt="Poster image" className='w-full h-[200px] object-cover'/>
+      <img src={posterPath} alt="Poster image" className='w-full h-[200px] object-cover rounded-md'/>
       
     </div>
   )

@@ -16,7 +16,7 @@ const SwiperScrollBar = ({movies}) => {
   return (
     <div>
       <Swiper
-        spaceBetween={"25"}
+        spaceBetween={"60"}
         slidesPerView={5}
         centeredSlides={true}
         autoplay={{
