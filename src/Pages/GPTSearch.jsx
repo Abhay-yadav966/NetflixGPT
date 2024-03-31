@@ -15,7 +15,7 @@ const GPTSearch = () => {
           className='bg-cover w-screen h-screen '
         />
 
-        <div className='absolute top-52 sm:top-44 w-full flex flex-col items-center gap-5 ' >
+        <div className='absolute top-52 sm:top-44 w-full flex flex-col items-center gap-3 sm:gap-5 ' >
           {/* Search Form */}
           <SearchForm/>
 
