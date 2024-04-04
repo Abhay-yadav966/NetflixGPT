@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
     cors({
-        origin:"https://netflix-abhay-yadav.vercel.app/",
+        origin:"https://netflix-abhay-yadav.vercel.app",
         credentials:true,
     })
 );
