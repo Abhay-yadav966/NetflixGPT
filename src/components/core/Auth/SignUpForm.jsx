@@ -70,7 +70,7 @@ const SignUpForm = () => {
             {/* password */}
             <label>
                 <input 
-                    type="text"
+                    type="password"
                     placeholder='Password'
                     {...register("password", {required:true})}
                     className='bg-[#333333] px-5 py-3 rounded outline-none text-white w-full'
